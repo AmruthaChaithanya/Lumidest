@@ -307,6 +307,9 @@ body {
   display: flex;justify-content: space-between;
   gap: 12px;margin-top: 14px;
 }
+.container{
+  padding-bottom: 30px;
+}
 @media (max-width: 768px) {
   .testimonial-author .author-image {
     width: 56px;height: 56px;
@@ -389,22 +392,27 @@ body {
   transition: color 0.3s;
 }
 .about-box a:hover {
-  color: #fff8e7;
+  color: #eabc50;
 }
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
     text-align: center;
   }.about-image img {
-    width: 200px;
+    width: 150px;
   }.about-links {
     flex-direction: column;
     align-items: center;
   }}
+@media (max-width:390px) {
+  .footer{
+    padding: 0px 20px 20px;
+  }
+}
 .footer {
   background-color: var(--primary-green);
   color:var(--light-gold);
-  padding: 60px 20px 20px;
+  padding: 30px 20px 20px;
 }
 .footer-bottom {
   text-align: center;padding-top: 30px;
@@ -423,10 +431,6 @@ body {
 /* ______________________________________________________________________________________________ */
 /* ======================================================================================================== */
 /* Service Section*/
-#service {
-  padding: 60px 0;
-  background: linear-gradient(180deg, rgba(249,244,231,0.85), var(--softgold));
-}
 .card-scroll-container {
   display: flex;gap: 40px;
   padding: 25px;overflow-x: auto;
@@ -480,7 +484,7 @@ body {
 }
 #service {
   background: linear-gradient(180deg, rgba(249,244,231,0.85), var(--softgold));
-  padding: 80px 18px;margin-top: 50px;
+  padding: 60px 18px;margin-top: 50px;
   display: flex;
 }
 #service .row > .col {
@@ -542,12 +546,12 @@ body {
 /* Contact */
 .contact {
     background: linear-gradient(180deg, var(--softgold) 0%, rgba(249,244,231,0.95) 100%);
-    padding: 80px 20px;
+    padding: 70px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .contact .h1 {
     color: var(--primary-green);
@@ -578,6 +582,7 @@ body {
     font-size: 1rem;
     color: var(--secondary-green);
     transition: all 0.3s ease;
+    background-color: rgba(254, 249, 224, 0.804);
 }
 .inbox input:focus {
     border-color: var(--gold);outline: none;
@@ -590,6 +595,7 @@ textarea {
     color: var(--secondary-green);
     resize: vertical;min-height: 120px;
     transition: all 0.3s ease;
+    background-color:rgba(254, 249, 224, 0.804);
 }
 textarea:focus {
     border-color: var(--gold);

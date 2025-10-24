@@ -19,7 +19,7 @@ function sendEmail(event) {
 
 document.getElementById("form").addEventListener("submit",function(event)
                 {
-                    var username=document.getElementById("name").value.trim();//empty vanna ath remove cheyan venditt aan trim
+                    var username=document.getElementById("name").value.trim();
                      var email=document.getElementById("email").value.trim();
                      var number=document.getElementById("number").value.trim();
                        var usernameError =document.getElementById("nameerror");
@@ -33,7 +33,7 @@ document.getElementById("form").addEventListener("submit",function(event)
                          //Username validation
                          if(username === "")
                          {
-                            usernameError.textContent = "Must have a username";
+                            usernameError.textContent = "Must have a User name";
                             isValid = false;
                          }
                          //Number validation
@@ -46,7 +46,7 @@ document.getElementById("form").addEventListener("submit",function(event)
                          var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                          if(email === "")
                          {
-                            emailError.textContent="Email is required";
+                            emailError.textContent="Must have Email id";
                             isValid = false;
                          }
                          else if(!emailPattern.test(email))
