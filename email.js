@@ -1,63 +1,65 @@
 function sendEmail(event) {
-    event.preventDefault()
+    event.preventDefault();
+
+    // form values
+    const username = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const number = document.getElementById("number").value.trim();
+    const message = document.getElementById("tarea").value.trim(); // textarea id was 'tarea'
+
+    // error
+    const usernameError = document.getElementById("nameerror");
+    const emailError = document.getElementById("emailerror");
+    const numberError = document.getElementById("numbererror");
+
+    // Clear
+    usernameError.textContent = "";
+    emailError.textContent = "";
+    numberError.textContent = "";
+
+   
+    let isValid = true;
+
+    // Validate name
+    if (username === "") {
+        usernameError.textContent = "Must have a User name";
+        isValid = false;
+    }
+
+    // Validate number
+    if (number === "") {
+        numberError.textContent = "Must have Phone number";
+        isValid = false;
+    }
+
+    // Validate email
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (email === "") {
+        emailError.textContent = "Must have Email id";
+        isValid = false;
+    } else if (!emailPattern.test(email)) {
+        emailError.textContent = "Invalid Email format";
+        isValid = false;
+    }
+
+   
+    if (!isValid) return;
+
+    // EmailJS
     const data = {
-        name:document.getElementById("name").value,
-        email:document.getElementById("email").value,
-        number:document.getElementById("number").value,
-        message:document.getElementById("message").value
-    }
-    emailjs.send("service_qw7uljj","template_6t4bsoj",data)
-    .then(function(res){
-        alert("success")
-        document.getElementById('formcontact').reset()
-    },function(error){
-        alert("failed",error)
-    }
-)}
+        name: username,
+        email: email,
+        number: number,
+        message: message
+    };
 
-// ---------------------------------------------------------------------------
-
-document.getElementById("form").addEventListener("submit",function(event)
-                {
-                    var username=document.getElementById("name").value.trim();
-                     var email=document.getElementById("email").value.trim();
-                     var number=document.getElementById("number").value.trim();
-                       var usernameError =document.getElementById("nameerror");
-                        var emailError=document.getElementById("emailerror");
-                        var numberError=document.getElementById("numbererror");
-                         usernameError.textContent = "";
-                         emailError.textContent = "";
-                         numberError.textContent = "";
-
-                         var isValid = true;
-                         //Username validation
-                         if(username === "")
-                         {
-                            usernameError.textContent = "Must have a User name";
-                            isValid = false;
-                         }
-                         //Number validation
-                         if(number === "")
-                         {
-                            numberError.textContent = "Must have Phone number";
-                            isValid = false;
-                         }
-                         // Email Validation
-                         var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                         if(email === "")
-                         {
-                            emailError.textContent="Must have Email id";
-                            isValid = false;
-                         }
-                         else if(!emailPattern.test(email))
-                         {
-                            emailError.textContent="Invalid Email format";
-                            isValid = false;
-                         }
-                         if(!isValid)
-                         {
-                            return;
-                         }
-                         alert("Form submitted Successfully");
-                         document.getElementById("form").reset();
-                })
+    
+    emailjs.send("service_qw7uljj", "template_6t4bsoj", data)
+    .then(function(response) {
+        alert("Message sent successfully!");
+        document.getElementById("form").reset();
+    }, function(error) {
+        console.error("EmailJS Error:", error);
+        alert("Failed to send message. Please try again later.");
+    });
+}

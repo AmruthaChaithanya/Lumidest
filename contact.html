@@ -52,30 +52,27 @@
 
 <!-- ------------------------------------------------------------ -->
  <!-- emailjs -->
+
 <section class="contact" id="contact">
-        <h1 class="h1">Contact us</h1>
-        <form action="#" id="form" onsubmit="sendEmail(event)">
-            <div class="inbox">
-                <span class="error" id="nameerror"></span>
-                <input type="text" placeholder="Your name" id="name">
-            </div><br>
-            <div class="inbox">
-                <span class="error" id="emailerror"></span>
-                <input type="email" placeholder="Your email" id="email">
-            </div><br>
-            <div class="inbox">
-                <span class="error" id="numbererror"></span>
-                <input type="number" placeholder="Your number" id="number">
-            </div><br>
-            <textarea name="message" placeholder="Your message" id="tarea" rows="2">
-            </textarea><br><br>
-            <button type="submit" id="contact_submit">SEND EMAIL</button>
-        </form>
-    </section>
-    <script src="./email.js">
-    </script>
-
-
+    <h1 class="h1">Contact us</h1>
+    <form id="form" onsubmit="sendEmail(event)">
+        <div class="inbox">
+            <span class="error" id="nameerror"></span>
+            <input type="text" placeholder="Your name" id="name">
+        </div><br>
+        <div class="inbox">
+            <span class="error" id="emailerror"></span>
+            <input type="email" placeholder="Your email" id="email">
+        </div><br>
+        <div class="inbox">
+            <span class="error" id="numbererror"></span>
+            <input type="number" placeholder="Your number" id="number">
+        </div><br>
+        <textarea placeholder="Your message" id="tarea" rows="2"></textarea><br><br>
+        <button type="submit" id="contact_submit">SEND EMAIL</button>
+    </form>
+</section>
+<script src="./email.js"></script>
 
 <!-- ----------------------------------------------------------------------------------- -->
 <!-- footer section -->
